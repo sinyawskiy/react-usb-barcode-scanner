@@ -8,7 +8,7 @@ import {
 import initialState from '@core/initialState'
 
 export default createSlice({
-  name: 'barcodeScanner',
+  name: 'react-usb-barcode-scanner',
   initialState,
   reducers: {
     enable,

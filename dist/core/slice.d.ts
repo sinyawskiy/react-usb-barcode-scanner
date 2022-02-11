@@ -6,5 +6,5 @@ declare const _default: import("@reduxjs/toolkit").Slice<import("../models").ISt
         payload: import("../models").IActionScanned;
         type: string;
     }) => void;
-}, "barcodeScanner">;
+}, "react-usb-barcode-scanner">;
 export default _default;

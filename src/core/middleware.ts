@@ -4,9 +4,11 @@ import { PayloadAction } from '@reduxjs/toolkit';
 // } from '@models/index';
 import {BARCODE_SCANNED} from '@constants/actions';
 
-const barcodeScannerMiddleware = () => (next: (action: PayloadAction<any>) => void) => (action: PayloadAction<any>) => { // (store: IStore) => (next) => (action) => {
+// (store: IStore) => (next) => (action) => {
+const barcodeScannerMiddleware = () => (next: (action: PayloadAction<any>) => void) => (action: PayloadAction<any>) => {
     if(action.type === BARCODE_SCANNED){
-        console.log(action.payload);
+        // TODO: use processing with barcode here
+        console.log('Proccessed barcode', action.payload.data);
     }
     return next(action);
 };
