@@ -6,6 +6,7 @@ import config from '@core/config';
 import {ActionCreator, ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import IActionScanning from "@models/IActionScanning";
 import IActionScanned from "@models/IActionScanned";
+import IConfig from "@models/IConfig";
 
 
 
@@ -13,19 +14,20 @@ interface BarcodeScannerProps {
     enabled: boolean;
     scanning: ActionCreator<IActionScanning>;
     scanned: ActionCreatorWithPayload<IActionScanned,string>;
+    config?: IConfig;
 }
-
-const log = (...args: any) => {
-    if(config.debug){
-        console.debug(...args);
-    }
-}
-
-log('BarcodeScanner config', config);
 
 class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
     constructor(props:any) {
         super(props);
+        this.config = { ...config, ...props.config };
+        this.log('BarcodeScanner config', config);
+    }
+
+    log = (...args: any) => {
+        if(this.config.debug){
+            console.debug(...args);
+        }
     }
 
     componentDidMount() {
@@ -39,6 +41,7 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
     isBusy:null|ReturnType<typeof setTimeout> = null;
     keyDownTime: null|number = null; // если первое нажатие, а за ним быстрое второе то отправляем что занят
     inputText:string = '';
+    config:IConfig = config;
 
     handleKeydown = (e:any) => {
         const d = new Date();
@@ -50,12 +53,12 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
             this.inputText = character;
         } else {
             const newTime = d.getTime();
-            if (newTime - this.keyDownTime < config.intervalBetweenKeyPress) { // если между нажатиями меньше 50 мс (у сканера примерно 25 мс)
+            if (newTime - this.keyDownTime < this.config.intervalBetweenKeyPress) { // если между нажатиями меньше 50 мс (у сканера примерно 25 мс)
                 this.inputText = this.inputText + character;
                 if (this.isBusy === null) {
                     // сообщаем приложению, что идет быстрое нажатие на клавиши, характерное для сканера
                     this.props.scanning();
-                    log('is busy');
+                    this.log('is busy');
                 }
                 if (this.isBusy) {
                     // перезапускаем таймер
@@ -63,12 +66,12 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
                 }
                 this.isBusy = setTimeout(() => {
                     // нажатия прекратились ждем 100 мс, то ввод прекратился
-                    log(this.inputText);
+                    this.log(this.inputText);
                     this.props.scanned({ data: this.inputText });
                     this.isBusy = null;
                     this.inputText = '';
-                    log('not debug');
-                }, config.scanningEndTimeout);
+                    this.log('not debug');
+                }, this.config.scanningEndTimeout);
             } else {
                 this.inputText = getCharByKeyCode(e.keyCode, e.shiftKey);
             }

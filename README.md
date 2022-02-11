@@ -36,6 +36,10 @@ applyMiddleware([..., barcodeScannerMiddleware])
 
 TODO: enable, disable не работает. На hook пока не получилось реализовать хранение объекта типа timeout.
 
+Конфигурация
+
+
+
 Страницы проекта
 
 [https://www.npmjs.com/package/react-usb-barcode-scanner](https://www.npmjs.com/package/react-usb-barcode-scanner)

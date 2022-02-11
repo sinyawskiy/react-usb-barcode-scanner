@@ -3,7 +3,9 @@ import {
   createStore, compose,
 } from 'redux';
 import reducers from '../reducers';
-import { barcodeScannerMiddleware } from 'react-usb-barcode-scanner'
+import barcodeScannerMiddleware from '../middleware';
+// import { barcodeScannerMiddleware } from 'react-usb-barcode-scanner'
+
 
 
 const configureStore = () => {
