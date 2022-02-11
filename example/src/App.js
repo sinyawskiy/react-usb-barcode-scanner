@@ -1,6 +1,7 @@
 import './App.css';
 import {BarcodeScanner} from 'react-usb-barcode-scanner';
 import {connect} from 'react-redux';
+import config from './config';
 
 const regex = /\n|\r\n|\n\r|\r/gm;
 
@@ -15,7 +16,7 @@ function App(props) {
         <div className="App-qr"></div>
       </div>
       <div className="App-info">
-        <BarcodeScanner />
+        <BarcodeScanner config={config} />
         { props.isBusy ? <p>Сканирую</p> : (props.data === ''? <p>Воспользуйтесь сканером</p>: (
           <><p>Вы отсканировали</p><div className="App-result" dangerouslySetInnerHTML={{ __html: getHtml(props.data) }} /></>
         )  )}
