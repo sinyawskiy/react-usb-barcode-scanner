@@ -1,0 +1,60 @@
+{
+  "name": "react-usb-barcode-scanner",
+  "version": "0.0.1",
+  "description": "Barcode scanner listener",
+  "author": "Alexey Sinyawskiy",
+  "license": "ISC",
+  "repository": "",
+  "main": "./dist/index.js",
+  "source": "src/index.tsx",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch --mode development",
+    "prettier": "prettier src/**/*.ts",
+    "prettier:fix": "prettier --write src/**/*.ts"
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-object-rest-spread": "^7.15.6",
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@reduxjs/toolkit": "^1.6.2",
+    "@types/react-redux": "^7.1.19",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
+    "prettier": "2.4.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.2.4",
+    "standard": "^16.0.4",
+    "ts-loader": "^9.2.6",
+    "ts-standard": "^10.0.0",
+    "typescript": "^4.4.3",
+    "webpack": "^5.58.0",
+    "webpack-cli": "^4.9.0"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.2.4"
+  }
+}
