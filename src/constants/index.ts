@@ -1,4 +1,8 @@
-import CONSTANTS_ACTIONS from '@constants/actions';
+import {BARCODE_SCANNED, BARCODE_SCANNING, ENABLE_BARCODE_SCANNER, DISABLE_BARCODE_SCANNER} from "@constants/actions";
 
-export default CONSTANTS_ACTIONS;
-
+export default {
+    BARCODE_SCANNING,
+    BARCODE_SCANNED,
+    DISABLE_BARCODE_SCANNER,
+    ENABLE_BARCODE_SCANNER
+}
