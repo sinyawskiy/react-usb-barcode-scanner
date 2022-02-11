@@ -1,0 +1,52 @@
+.App {
+  background-color: #282c34;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.App-info {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-image {
+  width: 50%;
+  display: flex;
+  background-image: url(./scanner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.App-qr {
+  width: 25%;
+  display: flex;
+  background-image: url(./qr-code.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.App-image p{
+  margin: 5px auto;
+  font-size: 25px;
+}
+
+.App-result {
+  text-align: left;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
