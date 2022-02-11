@@ -30,8 +30,13 @@ applyMiddleware([..., barcodeScannerMiddleware])
 <BarcodeScanner />
 ```
 
-Вся обработка происходит в миддлеваре, там диспатчатся необходимые события и обрабатываются баркоды. 
+Вся обработка происходит в миддлеваре, там диспатчатся необходимые события и обрабатываются баркоды.
+
+Пример смотрите в папке example :)
+
+TODO: enable, disable не работает. На hook пока не получилось реализовать хранение объекта типа timeout.
 
 Страницы проекта
+
 [https://www.npmjs.com/package/react-usb-barcode-scanner](https://www.npmjs.com/package/react-usb-barcode-scanner)
 [https://github.com/sinyawskiy/react-usb-barcode-scanner](https://github.com/sinyawskiy/react-usb-barcode-scanner)
