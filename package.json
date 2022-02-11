@@ -1,6 +1,6 @@
 {
   "name": "react-usb-barcode-scanner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Barcode scanner listener",
   "author": "Alexey Sinyawskiy",
   "license": "ISC",
@@ -12,6 +12,11 @@
     "type": "git",
     "url": "git+https://github.com:sinyawskiy/react-usb-barcode-scanner.git"
   },
+  "keywords": [
+    "barcode",
+    "scanner",
+    "qrcode"
+  ],
   "files": [
     "dist"
   ],
