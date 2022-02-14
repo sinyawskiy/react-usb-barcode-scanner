@@ -1,67 +1,104 @@
 # react-usb-barcode-scanner
 
-Если у вас есть сканер баркода и вам надо его интегрировать в react приложение.
+If you have a barcode scanner and need to integrate it into a react application.
 
-### Демо
-Демо по применению [http://www.barcode.sinyawskiy.ru/](http://www.barcode.sinyawskiy.ru/)
-В консоли можно увидеть кастомную обработку баркода в middleware.
+### Demo
+Application demo [http://www.barcode.sinyawskiy.ru/](http://www.barcode.sinyawskiy.ru/)
+In the console, you can see the custom processing of the barcode in the middleware.
 
-### Принцип работы
+### Principle of operation
 
-На событие document keyup вешается обработчик. 
-Он смотрит если символы достаточно быстро набираются, сохраняет их в памяти, после окончания быстрого набора диспатчит событие с текстом. 
+A handler is hung on the document keyup event.
+It looks if the characters are typed quickly enough, stores them in memory, after the end of fast input, it will dispatch the event with the saved text.
 
-###  Для использования необходимо
-
-Прописать в reducers.js
+### Default export from module
 ```
-import barcodeScanner from 'BarcodeScanner/reducer';
+export {
+    barcodeScannerMiddleware,
+    barcodeScannerReducer,
+    BARCODE_SCANNED,
+    BARCODE_SCANNING,
+    BarcodeScanner
+}
+```
+
+### Required to use
+
+Register in reducers.js
+```
+import { barcodeScannerReducer } from 'react-usb-barcode-scanner';
 
 export default {
     ...,
-    barcodeScanner,
+    barcodeScanner: barcodeScannerReducer,
 }
 ```
 
-Прописать в middleware.js
+Register in middleware.js
 ```
 import { applyMiddleware } from 'redux';
 import { barcodeScannerMiddleware } from 'BarcodeScanner';
-
-applyMiddleware([..., barcodeScannerMiddleware])
+...
+applyMiddleware([..., barcodeScannerMiddleware]) // <=  default middleware
 ```
 
-Добавить в App.js
+In real application you need write yours middleware look like this:
 ```
-<BarcodeScanner />
+const barcodeScannerMiddleware = (store) => (next) => (action) => {
+  // processing barcode need to be here
+  if(action.type === BARCODE_SCANNED){
+    const barcode = action.payload.data;
+    store.dispatch(YourActionOnScanned(barcode));
+  }
+  if(action.type === BARCODE_SCANNING){
+    store.dispatch(YourActionOnScanning());
+  }
+  return next(action);
+};
 ```
 
-Вся обработка происходит в миддлеваре, там диспатчатся необходимые события и обрабатываются баркоды.
+Add to App.js
+```
+import {BarcodeScanner} from 'react-usb-barcode-scanner';
+...
+<root>
+    ...
+    <BarcodeScanner config={{
+        intervalBetweenKeyPress: 100
+        scanningEndTimeout: 200
+        debug: true
+    }}/>
+    ...
+</Root>
+```
 
-### Пример
-Пример смотрите в папке example :)
+All processing takes place in the middleware, the necessary events are dispatched there and barcodes are processed.
 
-_TODO: enable, disable не работает. На hook пока не получилось реализовать хранение объекта типа timeout._
+### Example
+See an example in the example folder :)
 
-### Пример конфигурации
+_TODO: enable, disable doesn't work. On hooks, it has not yet been possible to implement the storage of an object of type timeout._
 
-Конфигурация `config.js`
+### Configuration example
+
+Configuration `config.js`
 ```
 export default {
-  intervalBetweenKeyPress: 100, // если между нажатиями меньше 100 мс (у сканера примерно 25 мс),
-  scanningEndTimeout: 200,  // нажатия прекратились ждем 200 мс, то ввод прекратился
-  debug: true,
+  intervalBetweenKeyPress: 100 // if between presses is less than 100ms (scanner has about 25ms),
+  scanningEndTimeout: 200, // clicks have stopped waiting for 200ms, then the input has stopped
+  debug: true
 }
 ```
 
-Необязательный аттрибут `config` передаётся в компонент:
+An optional `config` attribute is passed to the component:
 ```
-import config from './config'; 
+import config from './config';
 
 <BarcodeScanner config={config} />
 ```
 
-### Страницы проекта
+### Project pages
 
 [https://www.npmjs.com/package/react-usb-barcode-scanner](https://www.npmjs.com/package/react-usb-barcode-scanner)
-[https://github.com/sinyawskiy/react-usb-barcode-scanner](https://github.com/sinyawskiy/react-usb-barcode-scanner)
+
+[https://github.com/sinyawskiy/react-usb-barcode-scanner](https://github.com/sinyawskiy/react-usb-barcode-scanner) 
