@@ -47,6 +47,9 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
         if(character === ''){ // не реагируем на нажатия без символа
             return
         }
+        if(this.config.ignoreOnInputs && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')){ // не реагируем если курсор в инпуте
+            return
+        }
         if(this.keyDownTime === null){
             // фиксируем время первого нажатия
             this.keyDownTime = d.getTime();
@@ -67,7 +70,9 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
                 this.isBusy = setTimeout(() => {
                     // нажатия прекратились ждем 100 мс, то ввод прекратился
                     this.log(this.inputText);
-                    this.props.scanned({ data: this.inputText });
+                    this.props.scanned(
+                        { data: this.inputText , historyLength: this.config.historyLength, historyDict: { username: 'John Doe' } }
+                    );
                     this.isBusy = null;
                     this.inputText = '';
                     this.log('BarcodeScanner not busy');

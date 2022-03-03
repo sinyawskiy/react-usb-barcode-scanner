@@ -18,7 +18,9 @@ export {
     barcodeScannerReducer,
     BARCODE_SCANNED,
     BARCODE_SCANNING,
-    BarcodeScanner
+    BarcodeScanner,
+    enableBarcodeScanner,
+    disableBarcodeScanner
 }
 ```
 
@@ -68,7 +70,9 @@ import {BarcodeScanner} from 'react-usb-barcode-scanner';
     <BarcodeScanner config={{
         intervalBetweenKeyPress: 100
         scanningEndTimeout: 200
-        debug: true
+        debug: true,
+        ignoreOnInput: false,
+        historyLength: 0,
     }}/>
     ...
 </Root>
@@ -88,7 +92,8 @@ Configuration `config.js`
 export default {
   intervalBetweenKeyPress: 100 // if between presses is less than 100ms (scanner has about 25ms),
   scanningEndTimeout: 200, // clicks have stopped waiting for 200ms, then the input has stopped
-  debug: true
+  debug: true,
+  historyLength: 5,
 }
 ```
 

@@ -18,7 +18,9 @@ export {
     barcodeScannerReducer,
     BARCODE_SCANNED,
     BARCODE_SCANNING,
-    BarcodeScanner
+    BarcodeScanner,
+    enableBarcodeScanner,
+    disableBarcodeScanner
 }
 ```
 
@@ -50,6 +52,8 @@ applyMiddleware([..., barcodeScannerMiddleware])
         intervalBetweenKeyPress: 100,
         scanningEndTimeout: 200,
         debug: true,
+        ignoreOnInput: false,
+        historyLength: 0,
     }}/>
     ...
 </Root>
@@ -60,7 +64,7 @@ applyMiddleware([..., barcodeScannerMiddleware])
 ### Пример
 Пример смотрите в папке example :)
 
-_TODO: На hook пока не получилось реализовать хранение объекта типа timeout. Нет истории сканирования. Нет обнуления информации при начале сканирования._
+_TODO: На hook пока не получилось реализовать хранение объекта типа timeout. Нет обнуления информации при начале сканирования._
 
 ### Пример конфигурации
 
@@ -70,6 +74,7 @@ export default {
   intervalBetweenKeyPress: 100, // если между нажатиями меньше 100 мс (у сканера примерно 25 мс),
   scanningEndTimeout: 200,  // нажатия прекратились ждем 200 мс, то ввод прекратился
   debug: true,
+  historyLength: 5,
 }
 ```
 
