@@ -71,7 +71,10 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
                     // нажатия прекратились ждем 100 мс, то ввод прекратился
                     this.log(this.inputText);
                     this.props.scanned(
-                        { data: this.inputText , historyLength: this.config.historyLength, historyDict: { username: 'John Doe' } }
+                        {
+                            data: this.inputText,
+                            historyLength: this.config.historyLength,
+                        }
                     );
                     this.isBusy = null;
                     this.inputText = '';

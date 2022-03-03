@@ -1,16 +1,26 @@
 import './App.css';
-import {BarcodeScanner, enableBarcodeScanner, disableBarcodeScanner} from 'react-usb-barcode-scanner';
+import {BarcodeScanner, enableBarcodeScanner, disableBarcodeScanner, setHistoryDict} from 'react-usb-barcode-scanner';
 import {connect} from 'react-redux';
 import config from './config';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const regex = /\n|\r\n|\n\r|\r/gm;
+const defaultUserName = 'John Doe';
+
 
 function App(props) {
   const getHtml = (data) => data.replace(regex, '<br>');
   const [barcodeScannerState, setBarcodeScannerState] = useState('enabled');
   const [showHistory, setShowHistory] = useState(false);
   const [inputState, setInputState] = useState('');
+  const [userName, setUserName] = useState(defaultUserName);
+
+  useEffect(()=>{
+    props.setHistoryDict({
+      username: defaultUserName,
+    })
+  }, []); // once on mount
+
   const handleChange = (e) => {
     if (e.target.value==='enabled') {
       props.enableBarcodeScanner();
@@ -49,6 +59,14 @@ function App(props) {
             <input type="text" value={inputState} onChange={
             (e) => setInputState(e.target.value)
             } placeholder="Ignore dispatch scanned if input is focused" />
+          </div>
+          <div className="control-container">
+            <input type="text" value={userName} onChange={
+              (e) => {
+                setUserName(e.target.value);
+                props.setHistoryDict({ username: e.target.value });
+              }
+            } placeholder="Username for history" />
           </div>
         </div>
         <div className="App-barcodes">
@@ -110,4 +128,4 @@ function App(props) {
 
 const mapStateToProps = ({ barcodeScanner: { isBusy, data, history } }) => ({ isBusy, data, barcodeHistory: history });
 
-export default connect(mapStateToProps, {enableBarcodeScanner, disableBarcodeScanner})(App);
+export default connect(mapStateToProps, {enableBarcodeScanner, disableBarcodeScanner, setHistoryDict})(App);

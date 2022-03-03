@@ -3,4 +3,5 @@ export default interface IState {
     isBusy: boolean;
     data: string;
     history: Array<any>;
+    historyDict: object;
 }

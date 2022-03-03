@@ -4,6 +4,7 @@ import {
   disable,
   scanning,
   scanned,
+  setHistoryDict,
 } from '@reducers/index'
 import initialState from '@core/initialState'
 
@@ -15,5 +16,6 @@ export default createSlice({
     disable,
     scanning,
     scanned,
+    setHistoryDict,
   }
 })

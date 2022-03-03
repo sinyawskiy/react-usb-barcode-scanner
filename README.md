@@ -20,7 +20,8 @@ export {
     BARCODE_SCANNING,
     BarcodeScanner,
     enableBarcodeScanner,
-    disableBarcodeScanner
+    disableBarcodeScanner,
+    setHistoryDict,
 }
 ```
 
@@ -103,6 +104,15 @@ import config from './config';
 
 <BarcodeScanner config={config} />
 ```
+
+### Using history
+
+It is necessary to set the historyLength parameter in the config file, the number of records in the history, the latest is the newest.
+
+The whole history is stored in the barcode of the scanner in the history array. As an object, a date in ISO 8601 format, and the data string that was scanned.
+
+To add to the history, for example, a username or an id, use the action setHistoryDict , which in payload accepts
+dict which is then undistracted into history when it is scanned.
 
 ### Project pages
 

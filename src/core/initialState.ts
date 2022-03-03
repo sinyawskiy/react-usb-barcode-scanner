@@ -5,6 +5,7 @@ const initialState: IState = {
     isBusy: false,
     data: '',
     history: [],
+    historyDict: {},
 };
 
 export default initialState;

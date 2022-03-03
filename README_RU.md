@@ -20,7 +20,8 @@ export {
     BARCODE_SCANNING,
     BarcodeScanner,
     enableBarcodeScanner,
-    disableBarcodeScanner
+    disableBarcodeScanner,
+    setHistoryDict,
 }
 ```
 
@@ -84,6 +85,15 @@ import config from './config';
 
 <BarcodeScanner config={config} />
 ```
+
+### Использование history
+
+Необходимо в конфиг файле установить параметр historyLength: 5, количество записей в истории, самая последняя самая новая.
+
+Вся история лежит в сторе баркод сканера в массиве history. В виде объекта, даты date в формате ISO 8601, и строки data которая была отсканирована. 
+
+Чтобы добавить в историю, например имя пользователя или идетификатор, используется action setHistoryDict, который в payload принимает
+dict который потом расдистракчивается в history при сканировании.
 
 ### Страницы проекта
 
