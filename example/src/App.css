@@ -50,3 +50,7 @@
     transform: rotate(360deg);
   }
 }
+
+.select-container select {
+  font-size: 25px;
+}

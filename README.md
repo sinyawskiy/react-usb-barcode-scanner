@@ -44,6 +44,8 @@ applyMiddleware([..., barcodeScannerMiddleware]) // <=  default middleware
 
 In real application you need write yours middleware look like this:
 ```
+import {BARCODE_SCANNED, BARCODE_SCANNING} from 'react-usb-barcode-scanner';
+
 const barcodeScannerMiddleware = (store) => (next) => (action) => {
   // processing barcode need to be here
   if(action.type === BARCODE_SCANNED){
@@ -77,7 +79,7 @@ All processing takes place in the middleware, the necessary events are dispatche
 ### Example
 See an example in the example folder :)
 
-_TODO: enable, disable doesn't work. On hooks, it has not yet been possible to implement the storage of an object of type timeout._
+_TODO: On hooks, it has not yet been possible to implement the storage of an object of type timeout._
 
 ### Configuration example
 
