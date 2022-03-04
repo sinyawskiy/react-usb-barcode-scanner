@@ -29,19 +29,7 @@ function App(props) {
     }
     setBarcodeScannerState(e.target.value);
   }
-  const renderHeader = (historyItems) => {
-    if(historyItems.length>0) {
-      const result = []
-      const keys = Object.keys(historyItems[0])
-      for (let item in keys) {
-        result.push(
-          <td>{keys[item]}</td>
-        )
-      }
-      return <thead><tr>{result}</tr></thead>;
-    }
-    return null;
-  }
+
   return (
     <div className="App">
       <div className="App-image">
@@ -96,20 +84,21 @@ function App(props) {
             <div className="App-history">
               {
                 <table>
-                  {
-                    renderHeader(props.barcodeHistory)
-                  }
+                  <thead><tr>
+                    <td>Timestamp</td>
+                    <td>App info</td>
+                    <td>Data</td>
+                  </tr></thead>
                   <tbody>
                   {
                     props.barcodeHistory.map((el) => {
-                      const result = []
-                      const keys = Object.keys(el)
-                      for (let item in keys) {
-                        result.push(
-                          <td>{el[keys[item]]}</td>
-                        )
-                      }
-                      return <tr key={`history_${el.date}`}>{result}</tr>;
+                      return (
+                        <tr key={`history_${el.timestamp}`}>
+                          <td>{el.timestamp}</td>
+                          <td>{el.historyDict.username}</td>
+                          <td>{el.data}</td>
+                        </tr>
+                      );
                     })
                   }
                   </tbody>
