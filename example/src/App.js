@@ -60,7 +60,7 @@ function App(props) {
             <input type="text" value={userName} onChange={
               (e) => {
                 setUserName(e.target.value);
-                props.setHistoryDict({ username: e.target.value });
+                props.setHistoryInfo({ username: e.target.value });
               }
             } placeholder="Username for history" />
           </div>
@@ -98,7 +98,7 @@ function App(props) {
                             return (
                               <tr key={`history_${el.timestamp}`}>
                                 <td>{el.timestamp}</td>
-                                <td>{el.historyDict.username}</td>
+                                <td>{el.historyInfo.username}</td>
                                 <td>{el.data}</td>
                               </tr>
                             );
