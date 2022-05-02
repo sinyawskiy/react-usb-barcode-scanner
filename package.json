@@ -1,6 +1,6 @@
 {
   "name": "react-usb-barcode-scanner",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Barcode scanner listener",
   "author": "Alexey Sinyawskiy",
   "license": "ISC",
