@@ -36,7 +36,7 @@ object-assign
 
 /*! @reducers/scanning */
 
-/*! @reducers/setHistoryDict */
+/*! @reducers/setHistoryInfo */
 
 /*! @reduxjs/toolkit */
 
@@ -115,7 +115,7 @@ object-assign
           \****************************************/
 
 /*!****************************************!*\
-          !*** ./src/reducers/setHistoryDict.ts ***!
+          !*** ./src/reducers/setHistoryInfo.ts ***!
           \****************************************/
 
 /*!*******************************************!*\

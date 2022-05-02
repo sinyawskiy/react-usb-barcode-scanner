@@ -7105,10 +7105,8 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-usb-barcode-scanner@0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/react-usb-barcode-scanner/-/react-usb-barcode-scanner-0.1.11.tgz#8b05874f03a6dffd1aeaae121136337904cb0107"
-  integrity sha512-sQ18BmxLhmsnyTVwLgvFYDzvX4tUtN99cXxRnuodZsvhFasdCdKo468AymljdP+liHWQaO8Tsn9nvqq9cR/hVA==
+react-usb-barcode-scanner@../dist:
+  version "0.0.0"
 
 react@^17.0.2:
   version "17.0.2"

@@ -6,8 +6,8 @@ declare const _default: import("@reduxjs/toolkit").Slice<import("../models").ISt
         payload: import("../models").IActionScanned;
         type: string;
     }) => void;
-    setHistoryDict: (state: import("../models").IState, action: {
-        payload: import("../models/IActionSetHistoryDict").default;
+    setHistoryInfo: (state: import("../models").IState, action: {
+        payload: import("../models/IActionSetHistoryInfo").default;
         type: string;
     }) => void;
 }, "react-usb-barcode-scanner">;
