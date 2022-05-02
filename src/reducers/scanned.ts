@@ -12,7 +12,7 @@ export default (state: IState, action: PayloadAction<IActionScanned>) => {
         const currentState = current(state);
         const history = [...currentState.history];
         history.push({
-            historyDict: currentState.historyDict,
+            historyInfo: currentState.historyInfo,
             data: data,
             timestamp: new Date().getTime(),
         });

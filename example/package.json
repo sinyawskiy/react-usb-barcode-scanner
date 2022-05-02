@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
@@ -10,13 +10,14 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-scripts": "5.0.0",
-    "react-usb-barcode-scanner": "0.1.10",
+    "react-usb-barcode-scanner": "0.1.11",
     "redux": "^4.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-docs": "PUBLIC_URL=/react-usb-barcode-scanner/ react-scripts build && cp -r build/** ../docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

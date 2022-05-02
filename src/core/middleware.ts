@@ -8,7 +8,7 @@ import {BARCODE_SCANNED} from '@constants/actions';
 const barcodeScannerMiddleware = () => (next: (action: PayloadAction<any>) => void) => (action: PayloadAction<any>) => {
     if(action.type === BARCODE_SCANNED){
         // TODO: use processing with barcode here
-        console.log('Proccessed barcode', action.payload.data);
+        console.log('Processed barcode', action.payload.data);
     }
     return next(action);
 };

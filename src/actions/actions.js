@@ -7,7 +7,7 @@ export const {
     disable,
     scanning,
     scanned,
-    setHistoryDict,
+    setHistoryInfo,
 } = actions
 
 export default actions;

@@ -3,7 +3,7 @@
 If you have a barcode scanner and need to integrate it into a react application.
 
 ### Demo
-Application demo [http://www.barcode.sinyawskiy.ru/](http://www.barcode.sinyawskiy.ru/)
+Application demo [https://sinyawskiy.github.io/react-usb-barcode-scanner/](https://sinyawskiy.github.io/react-usb-barcode-scanner/)
 In the console, you can see the custom processing of the barcode in the middleware.
 
 ### Principle of operation
@@ -21,7 +21,7 @@ export {
     BarcodeScanner,
     enableBarcodeScanner,
     disableBarcodeScanner,
-    setHistoryDict,
+    setHistoryInfo,
 }
 ```
 
