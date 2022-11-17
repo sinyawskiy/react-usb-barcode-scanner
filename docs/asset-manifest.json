@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-usb-barcode-scanner/static/css/main.403c0619.css",
-    "main.js": "/react-usb-barcode-scanner/static/js/main.af789155.js",
-    "static/media/scanner.jpg": "/react-usb-barcode-scanner/static/media/scanner.b80e918b035f8fbc29b7.jpg",
-    "index.html": "/react-usb-barcode-scanner/index.html",
-    "main.403c0619.css.map": "/react-usb-barcode-scanner/static/css/main.403c0619.css.map",
-    "main.af789155.js.map": "/react-usb-barcode-scanner/static/js/main.af789155.js.map"
+    "main.css": "/static/css/main.a43684d6.css",
+    "main.js": "/static/js/main.1bfaffb1.js",
+    "static/media/scanner.jpg": "/static/media/scanner.b80e918b035f8fbc29b7.jpg",
+    "index.html": "/index.html",
+    "main.a43684d6.css.map": "/static/css/main.a43684d6.css.map",
+    "main.1bfaffb1.js.map": "/static/js/main.1bfaffb1.js.map"
   },
   "entrypoints": [
-    "static/css/main.403c0619.css",
-    "static/js/main.af789155.js"
+    "static/css/main.a43684d6.css",
+    "static/js/main.1bfaffb1.js"
   ]
 }
