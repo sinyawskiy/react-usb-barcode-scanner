@@ -47,6 +47,9 @@ class BarcodeScanner extends React.PureComponent<BarcodeScannerProps> {
         if(character === ''){ // не реагируем на нажатия без символа
             return
         }
+        if(this.isBusy){ //firefox fast search '/'
+            e.preventDefault();
+        }
         if(this.config.ignoreOnInputs && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')){ // не реагируем если курсор в инпуте
             return
         }
